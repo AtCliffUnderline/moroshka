@@ -166,4 +166,3 @@ up:
 	$(eval CONTAINERS := $(subst \n, ,$(shell cat docker/config/$(RUN_ARGS)/up)))
 	@test -n "$(CONTAINERS)" || (echo CONTAINERS is not specified. Use \"make up simple\" for example && exit 1)
 	@$(VARS) && $(COMPOSE) up -d $(CONTAINERS)
-	make xdebug-off
