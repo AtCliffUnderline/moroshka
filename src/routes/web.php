@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/lessons', 'LessonController@getLessons');
+Route::post('/lessons', 'LessonController@postLesson');
