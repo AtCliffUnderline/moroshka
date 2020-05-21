@@ -14,11 +14,16 @@ class HashService
      */
     public function getLessonHashById($id)
     {
-        return md5(Lesson::where('id', $id)->first()['name']);
+        return md5(Lesson::where('id', $id)->first()->name);
     }
 
+    /**
+     * @param $hash
+     * @return mixed
+     */
     public function getLessonByHash($hash)
     {
-        return Lesson::where('id', Lesson::selectRaw('md5(name), id', [$hash])->first()['id'])->first();
+        $IdLesson = Lesson::whereRaw('md5(name)="' . $hash . '"')->first()->id;
+        return Lesson::where('id', $IdLesson)->first();
     }
 }
