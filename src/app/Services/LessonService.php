@@ -39,7 +39,7 @@ class LessonService
     public function updateLesson($id, array $params)
     {
         $filename = Storage::disk('public')->put('/', $params['video_file']);
-        return Lesson::where('id', $id)->update([
+        return Lesson::find($id)->update([
             'name' => $params['name'],
             'video_url' => config('filesystems.disks.public.url') . '/' . $filename,
             'text' => $params['text']
@@ -52,6 +52,6 @@ class LessonService
      */
     public function deleteLessonById($id)
     {
-        return Lesson::where('id', $id)->delete();
+        return Lesson::find($id)->delete();
     }
 }
