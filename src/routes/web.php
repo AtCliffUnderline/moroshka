@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/lessons', 'LessonController@getLessons');
 Route::post('/lessons', 'LessonController@postLesson');
+Route::post('/lessons/hash/{id}', 'LessonHashController@getHash');
+Route::get('/lessons/hash/{hash}', 'LessonHashController@getLesson');
