@@ -17,6 +17,10 @@ class LessonService
         return Lesson::all();
     }
 
+    /**
+     * @param array $params
+     * @return mixed
+     */
     public function postLesson(array $params)
     {
         $filename = Storage::disk('public')->put('/', $params['video_file']);
