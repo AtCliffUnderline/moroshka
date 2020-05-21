@@ -14,7 +14,8 @@ class HashService
      */
     public function getLessonHashById($id)
     {
-        return md5(Lesson::where('id', $id)->first()->name);
+        $IdNameOfLesson = Lesson::where('id', $id)->first();
+        return md5($IdNameOfLesson->id . $IdNameOfLesson->name);
     }
 
     /**
@@ -23,7 +24,7 @@ class HashService
      */
     public function getLessonByHash($hash)
     {
-        $IdLesson = Lesson::whereRaw('md5(name)="' . $hash . '"')->first()->id;
+        $IdLesson = Lesson::whereRaw('md5(CONCAT(CAST(id as char),name))="' . $hash . '"')->first()->id;
         return Lesson::where('id', $IdLesson)->first();
     }
 }
