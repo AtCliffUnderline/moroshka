@@ -33,4 +33,23 @@ class LessonController extends Controller
     {
         return $this->lessonService->postLesson($request->all());
     }
+
+    /**
+     * @param $id
+     * @param AddLessonRequest $request
+     * @return mixed
+     */
+    public function updateLesson($id, AddLessonRequest $request)
+    {
+        return $this->lessonService->updateLesson($id, $request->all());
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function deleteLesson($id)
+    {
+        return $this->lessonService->deleteLessonById($id);
+    }
 }

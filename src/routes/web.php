@@ -15,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/lessons', 'LessonController@getLessons');
 Route::post('/lessons', 'LessonController@postLesson');
+Route::patch('/lessons/{id}', 'LessonController@updateLesson');
+Route::delete('/lessons/{id}', 'LessonController@deleteLesson');
 Route::post('/lessons/hash/{id}', 'LessonHashController@getHash');
 Route::get('/lessons/hash/{hash}', 'LessonHashController@getLesson');
