@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddUserRequest;
 use App\Services\UserService;
+use Illuminate\Database\Eloquent\Model;
 
 class UserController extends Controller
 {
@@ -20,9 +21,9 @@ class UserController extends Controller
 
     /**
      * @param AddUserRequest $request
-     * @return mixed
+     * @return Model
      */
-    public function addUser(AddUserRequest $request)
+    public function addUser(AddUserRequest $request) : Model
     {
         return $this->userService->postUser($request->all());
     }

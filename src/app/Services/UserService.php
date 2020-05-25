@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService
 {
-    /**
+    /**]
      * @param array $param
-     * @return mixed
+     * @return User
      */
-    public function postUser(array $param)
+    public function postUser(array $param): User
     {
         return User::create([
             'login' => $param['login'],
@@ -25,7 +25,7 @@ class UserService
 
     /**
      * @param $login
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
      */
     public function findUserByLogin($login)
     {

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    /**
+     * @var LoginService
+     */
     private $loginService;
 
     public function __construct(LoginService $loginService)
