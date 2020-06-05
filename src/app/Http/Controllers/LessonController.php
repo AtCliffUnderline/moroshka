@@ -50,9 +50,7 @@ class LessonController extends Controller
      */
     public function deleteLesson($id)
     {
-        if ($this->lessonService->ifLessonExist($id)) {
-            $this->lessonService->deleteLessonById($id);
-        };
+        $this->lessonService->deleteLessonById($id);
         return response()->json(['result' => 'success'], 201);
     }
 }

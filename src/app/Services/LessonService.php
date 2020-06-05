@@ -52,11 +52,6 @@ class LessonService
      */
     public function deleteLessonById($id)
     {
-        return Lesson::find($id)->delete();
-    }
-
-    public function ifLessonExist($id)
-    {
-        return Lesson::findOrFail($id);
+        return Lesson::findOrFail($id)->delete();
     }
 }
