@@ -1,5 +1,4 @@
 FROM moroshka_workspace
-FROM auto-schedule_workspace
 USER laradock
 
 USER root

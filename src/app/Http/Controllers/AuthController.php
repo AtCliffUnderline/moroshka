@@ -22,13 +22,15 @@ class AuthController extends Controller
 
     /**
      * @param LoginRequest $request
-     * @return \Illuminate\Contracts\Auth\Authenticatable|\Illuminate\Http\JsonResponse
+     * @return mixed
      */
     public function loginUser(LoginRequest $request)
     {
         $authResult = $this->loginService->loginCheck($request->all());
         if ($authResult) {
-            return Auth::user();
+            return [
+                'token' => Auth::user()->createToken('1')->plainTextToken
+            ];
         } else {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }

@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/lessons', 'LessonController@getLessons');
-Route::post('/lessons', 'LessonController@postLesson');
-Route::delete('/lessons/{id}', 'LessonController@deleteLesson');
-Route::post('/lessons/hash/{id}', 'LessonHashController@getHash');
+Route::middleware('auth:sanctum')->group(function() {
+    Route::get('/lessons', 'LessonController@getLessons');
+    Route::post('/lessons', 'LessonController@postLesson');
+    Route::delete('/lessons/{id}', 'LessonController@deleteLesson');
+    Route::post('/lessons/hash/{id}', 'LessonHashController@getHash');
+    Route::get('/iam', 'AuthController@authUser');
+});
 Route::get('/lessons/hash/{hash}', 'LessonHashController@getLesson');
 Route::post('/login', 'AuthController@loginUser');
-Route::get('/iam', 'AuthController@authUser');
+
