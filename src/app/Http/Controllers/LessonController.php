@@ -45,10 +45,11 @@ class LessonController extends Controller
 
     /**
      * @param $id
-     * @return mixed
+     * @return \Illuminate\Http\JsonResponse
      */
     public function deleteLesson($id)
     {
-        return $this->lessonService->deleteLessonById($id);
+        $this->lessonService->deleteLessonById($id);
+        return response()->json(['result' => 'success'], 201);
     }
 }
