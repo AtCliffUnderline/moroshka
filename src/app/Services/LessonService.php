@@ -54,4 +54,9 @@ class LessonService
     {
         return Lesson::find($id)->delete();
     }
+
+    public function ifLessonExist($id)
+    {
+        return Lesson::findOrFail($id);
+    }
 }
