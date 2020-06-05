@@ -12,7 +12,6 @@ class LessonController extends Controller
      */
     private $lessonService;
 
-
     public function __construct(LessonService $lessonService)
     {
         $this->lessonService = $lessonService;
