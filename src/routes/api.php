@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/lessons', 'LessonController@getLessons');
     Route::post('/lessons', 'LessonController@postLesson');
     Route::delete('/lessons/{id}', 'LessonController@deleteLesson');
+    Route::patch('/lessons/{id}', 'LessonController@updateLesson');
     Route::post('/lessons/hash/{id}', 'LessonHashController@getHash');
     Route::get('/iam', 'AuthController@authUser');
 });
