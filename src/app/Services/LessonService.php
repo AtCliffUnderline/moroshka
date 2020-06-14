@@ -38,19 +38,21 @@ class LessonService
      */
     public function updateLesson($id, array $params)
     {
+        $lesson = Lesson::find($id);
         if(!isset($params['video_file'])) {
-            return Lesson::find($id)->update([
+            $lesson->update([
                 'name' => $params['name'],
                 'text' => $params['text']
             ]);
         } else {
             $filename = Storage::disk('public')->put('/', $params['video_file']);
-            return Lesson::find($id)->update([
+            $lesson->update([
                 'name' => $params['name'],
                 'video_url' => config('filesystems.disks.public.url') . '/' . $filename,
                 'text' => $params['text']
             ]);
         }
+        return $lesson;
     }
 
     /**
