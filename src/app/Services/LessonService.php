@@ -38,7 +38,7 @@ class LessonService
      */
     public function updateLesson($id, array $params)
     {
-        if(!$params['video_file']) {
+        if(!isset($params['video_file'])) {
             return Lesson::find($id)->update([
                 'name' => $params['name'],
                 'text' => $params['text']
