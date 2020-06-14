@@ -25,7 +25,7 @@ class AddLessonRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
-            'video_file' => 'required|file|mimetypes:video/mpeg,video/mp4,video/quicktime',
+            'video_file' => 'file|mimetypes:video/mpeg,video/mp4,video/quicktime',
             'text' => 'required|string'
         ];
     }
