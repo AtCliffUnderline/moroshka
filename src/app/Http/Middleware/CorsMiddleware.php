@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Response;
 
 class CorsMiddleware
 {
@@ -22,6 +23,9 @@ class CorsMiddleware
             'Access-Control-Max-Age'           => '86400',
             'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With, X-Locale, X-Socket-id'
         ];
+        /**
+         * @var Response
+         */
         $response = $next($request);
         foreach($headers as $key => $value)
         {

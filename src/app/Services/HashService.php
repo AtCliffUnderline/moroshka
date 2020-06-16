@@ -24,7 +24,7 @@ class HashService
      */
     public function getLessonByHash($hash)
     {
-        $idLesson = Lesson::whereRaw('md5(CONCAT(CAST(id as char),name))="' . $hash . '"')->first()->id;
+        $idLesson = Lesson::whereRaw('md5(CONCAT(CAST(id as char),name))="' . $hash . '"')->firstOrFail()->id;
         return Lesson::where('id', $idLesson)->first();
     }
 }
